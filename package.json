@@ -1,0 +1,21 @@
+{
+  "name": "async-kit",
+  "version": "1.0.0",
+  "description": "A small utility library that gives you better control over asynchronous JavaScript.",
+  "main": "index.js",
+  "module": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmohamed24/async-kit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmohamed24/async-kit/issues"
+  },
+  "homepage": "https://github.com/dmohamed24/async-kit#readme"
+}
