@@ -5,7 +5,7 @@
   "main": "index.js",
   "module": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/dmohamed24/async-kit/issues"
   },
-  "homepage": "https://github.com/dmohamed24/async-kit#readme"
+  "homepage": "https://github.com/dmohamed24/async-kit#readme",
+  "devDependencies": {
+    "vitest": "^4.1.8"
+  }
 }
