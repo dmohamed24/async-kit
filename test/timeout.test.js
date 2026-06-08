@@ -27,4 +27,32 @@ describe("pTimeout", () => {
       "TIMEOUT ERROR",
     );
   });
+
+  it("rejects when the promise throws an error", async () => {
+    const rejectedPromise = new Promise((_, reject) => {
+      reject(new Error("error"));
+    });
+
+    await expect(pTimeout(rejectedPromise, 100)).rejects.toThrow("error");
+  });
+
+  it("should throw an error when ms passed is not a number", async () => {
+    const promise = new Promise((resolve) => {
+      resolve("done");
+    });
+
+    await expect(() => {
+      pTimeout(promise, "100");
+    }).toThrow("ms must be a non-negative number");
+  });
+
+  it("should throw an error when ms passed is less than 0", async () => {
+    const promise = new Promise((resolve) => {
+      resolve("done");
+    });
+
+    await expect(() => {
+      pTimeout(promise, -1);
+    }).toThrow("ms must be a non-negative number");
+  });
 });

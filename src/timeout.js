@@ -1,15 +1,19 @@
-const pTimeout = (promise, ms, message) => {
-  const errorMessage = message || "Promise timed out error";
+const pTimeout = (promise, ms, message = "Promise timed out error") => {
+  if (typeof ms !== "number" || ms < 0) {
+    throw new Error("ms must be a non-negative number");
+  }
+
+  let setTimerId;
 
   const timeoutPromise = new Promise((_, reject) => {
-    const id = setTimeout(() => {
-      reject(new Error(errorMessage));
+    setTimerId = setTimeout(() => {
+      reject(new Error(message));
     }, ms);
-
-    promise.then(() => clearTimeout(id));
   });
 
-  return Promise.race([promise, timeoutPromise]);
+  return Promise.race([promise, timeoutPromise]).finally(() =>
+    clearTimeout(setTimerId),
+  );
 };
 
 export default pTimeout;
