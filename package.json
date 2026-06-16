@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A small utility library that gives you better control over asynchronous JavaScript.",
   "main": "index.js",
-  "module": "",
+  "type": "module",
   "scripts": {
     "test": "vitest"
   },
